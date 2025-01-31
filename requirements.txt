@@ -10,8 +10,8 @@ sse_starlette
 pypdf
 chromadb
 faiss-cpu
-
-
+PyPDF2
+elasticsearch
 # groq
 # cassio
 # beautifulsoup4
