@@ -5,10 +5,14 @@ import streamlit as st
 from langchain_community.vectorstores import Pinecone
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from pinecone import Pinecone, ServerlessSpec
+import os
 
+PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
+# PINECONE_ENV = os.getenv("PINECONE_ENV")
 
-pc = Pinecone(api_key="pcsk_6aafqg_2rxeEF81794Cg2CAG8d7bNMvfn5RUYUt9SUgGdNGC4DxLjC2saqje9V8PKoookm")
+pc = Pinecone(api_key=PINECONE_API_KEY)
 index_name = "chatbot"  
+ 
 
 def vector_embedding(pdf_file):
     try:
