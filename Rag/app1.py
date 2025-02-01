@@ -1,6 +1,12 @@
 import streamlit as st
 from document_processing import vector_embedding
 from query_handling import handle_query
+from pinecone import Pinecone
+
+
+pc = Pinecone(api_key="pcsk_6aafqg_2rxeEF81794Cg2CAG8d7bNMvfn5RUYUt9SUgGdNGC4DxLjC2saqje9V8PKoookm")
+index_name = "chatbot"
+
 
 def run_gui():
     # Set up Streamlit title
