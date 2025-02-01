@@ -11,14 +11,8 @@ pypdf
 chromadb
 faiss-cpu
 PyPDF2
+fitz
 elasticsearch
-# groq
-# cassio
-# beautifulsoup4
-# langchain-groq
-# wikipedia
-# arxiv
-# langchainhub
-# sentence_transformers
-# PyPDF2
-# langchain-objectbox
+groq
+langchain_groq
+
