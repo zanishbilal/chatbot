@@ -22,10 +22,10 @@ from groq import Groq  # Import Groq client
 
 
 
-# PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
+PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 # PINECONE_ENV = os.getenv("PINECONE_ENV")
 
-pc = Pinecone(api_key="pcsk_6aafqg_2rxeEF81794Cg2CAG8d7bNMvfn5RUYUt9SUgGdNGC4DxLjC2saqje9V8PKoookm")
+pc = Pinecone(api_key=PINECONE_API_KEY)
 index_name = "chatbot"  
 
 # Load environment variables
