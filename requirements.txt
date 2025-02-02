@@ -17,6 +17,6 @@ groq
 langchain_groq
 pinecone-client
 python-dotenv
-
+pymupdf
 
 
