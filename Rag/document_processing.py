@@ -21,8 +21,7 @@ pc = Pinecone(api_key=PINECONE_API_KEY)
 
 index_name = PINECONE_INDEX
 
-# pc = Pinecone(api_key="pcsk_6aafqg_2rxeEF81794Cg2CAG8d7bNMvfn5RUYUt9SUgGdNGC4DxLjC2saqje9V8PKoookm")
-# index_name = "chatbot"  
+  
  
 
 def vector_embedding(pdf_file):
