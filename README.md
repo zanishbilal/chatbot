@@ -1,10 +1,10 @@
 # Fabric Inspection Chatbot
 
 ## 📌 Project Overview
-This project is a chatbot designed to assist with fabric inspection tasks. It integrates **Groq** for language processing and **Pinecone** for vector storage, making it efficient for retrieving relevant information based on fabric-related queries.
+A powerful AI-driven chatbot designed to **query and extract information from large PDF documents** efficiently. This bot leverages **deepseek-r1-distill-llama-70b** **Llama 3**, **Groq API**, **Pinecone** for vector storage, and **Streamlit** for an interactive user interface.
 
 ## 🚀 Features
-- **Natural Language Processing**: Uses `deepseek-r1-distill-llama-70b` for text understanding.
+- **Natural Language Processing**: Uses `deepseek-r1-distill-llama-70b` for text understanding and Summarizing.
 - **Embeddings with Llama 3.2**: Enhances search performance.
 - **Vector Database**: Utilizes `Pinecone` for fast and scalable search.
 - **Environment Variables**: API keys and other configurations are securely stored in a `.env` file.
@@ -12,8 +12,8 @@ This project is a chatbot designed to assist with fabric inspection tasks. It in
 ## 🛠️ Installation
 ### **1️⃣ Clone the Repository**
 ```bash
-git clone https://github.com/yourusername/fabric-inspection-chatbot.git
-cd fabric-inspection-chatbot
+git clone https://github.com/zanishbilal/chatbot.git
+cd chatbot
 ```
 
 ### **2️⃣ Install Dependencies**
@@ -36,8 +36,8 @@ python app.py
 ```
 
 ## 🛠️ Usage
-- Upload fabric images.
-- Chat with the bot to get fabric analysis.
+- Upload larg pdf.
+- Chat with the bot to get insight analysis.
 - Retrieve past inspections from Pinecone.
 
 ## ⚙️ Configuration
@@ -45,10 +45,13 @@ Modify `config.py` to adjust settings like model type, embedding parameters, and
 
 ## 🏗️ Project Structure
 ```
-📂 fabric-inspection-chatbot
-│-- 📂 models
-│-- 📂 utils
-│-- app.py
+📂 chatbot
+│-- 📂 dataset
+│-- 📂 report
+|-- 📂 Rag
+    │--- app.py
+    |--- document_preprocessing.py
+    |--- query_handling.py
 │-- requirements.txt
 │-- .env
 │-- README.md
