@@ -46,12 +46,13 @@ Modify `config.py` to adjust settings like model type, embedding parameters, and
 ## 🏗️ Project Structure
 ```
 📂 chatbot
-│-- 📂 dataset
-│-- 📂 report
+
 |-- 📂 Rag
     │--- app.py
     |--- document_preprocessing.py
     |--- query_handling.py
+    │-- 📂 dataset
+    │-- 📂 report
 │-- requirements.txt
 │-- .env
 │-- README.md
