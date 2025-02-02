@@ -6,12 +6,23 @@ from langchain_community.vectorstores import Pinecone
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from pinecone import Pinecone, ServerlessSpec
 import os
+from dotenv import load_dotenv
 
-PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
-# PINECONE_ENV = os.getenv("PINECONE_ENV")
+load_dotenv()
 
+
+
+PINECONE_API_KEY = os.getenv('PINECONE_API_KEY')
+PINECONE_INDEX = os.getenv('PINECONE_INDEX')
+
+# Initialize Pinecone client
 pc = Pinecone(api_key=PINECONE_API_KEY)
-index_name = "chatbot"  
+
+
+index_name = PINECONE_INDEX
+
+# pc = Pinecone(api_key="pcsk_6aafqg_2rxeEF81794Cg2CAG8d7bNMvfn5RUYUt9SUgGdNGC4DxLjC2saqje9V8PKoookm")
+# index_name = "chatbot"  
  
 
 def vector_embedding(pdf_file):
@@ -36,7 +47,7 @@ def vector_embedding(pdf_file):
                 return
 
             # Split the text into chunks for better processing
-            st.session_state.text_splitter = RecursiveCharacterTextSplitter(chunk_size=2000, chunk_overlap=1000)
+            st.session_state.text_splitter = RecursiveCharacterTextSplitter(chunk_size=15000, chunk_overlap=8000)
             final_documents = st.session_state.final_documents = st.session_state.text_splitter.split_documents(st.session_state.docs)
 
     # Check if text splitting works
@@ -82,7 +93,7 @@ def vector_embedding(pdf_file):
             for doc_id, data in chunk_embeddings_dict.items():
                 vectors_to_insert.append({
                     "id": doc_id,  # Unique ID for the chunk
-                    "values": data["embedding"],  # Embedding values for the chunk
+                    "values": [float(value) for value in data["embedding"]],  # Ensure embedding values are floats
                     "metadata": data["metadata"]  # Metadata for the chunk, including content
                 })
 

@@ -24,11 +24,16 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
-# Initialize Pinecone instance
-pc = Pinecone(api_key=os.environ.get("PINECONE_API_KEY"))
 
-# Create an index (if not already created)
-index_name = "chatbot"
+PINECONE_API_KEY = os.getenv('PINECONE_API_KEY')
+PINECONE_INDEX = os.getenv('PINECONE_INDEX')
+
+# Initialize Pinecone client
+pc = Pinecone(api_key=PINECONE_API_KEY)
+
+
+index_name = PINECONE_INDEX
+
 
 
 # Create a prompt template
@@ -59,8 +64,6 @@ def handle_query(prompt1):
         include_metadata=True,  # Include metadata
     )
 
-    print("Response:", response)
-
     # Display the response time
     st.write("Response time:", round(time.process_time() - start, 2), "seconds")
 
@@ -80,13 +83,13 @@ def handle_query(prompt1):
         # Use Groq for summarization
         client = Groq()
         completion = client.chat.completions.create(
-            model="Llama3-8b-8192",  # Specify your model (Llama3 here as an example)
+            model="deepseek-r1-distill-llama-70b",  # Specify your model (Llama3 here as an example)
             messages=[
                 {"role": "system", "content": "Summarize the following text:"},
                 {"role": "user", "content": formatted_prompt}
             ],
             temperature=1,
-            max_completion_tokens=1024,
+            max_completion_tokens=100,
             top_p=1,
             stream=True,
             stop=None,
